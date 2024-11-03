@@ -150,7 +150,7 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             gradients for a given loss function type np.ndarray (n-dimensional array)
         """
-        
+        a
         
         pass
     
