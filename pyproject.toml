@@ -9,4 +9,4 @@ readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
-dependencies = ["matplotlib == 3.9.2", "numpy == 2.1.2", "pandas == 2.2.3", "scikit-learn == 1.5.2", "pytest >= 6.2"]
+dependencies = ["matplotlib = 3.9.2", "numpy = 2.1.2", "pandas = 2.2.3", "scikit-learn = 1.5.2", "pytest = 6.2"]
