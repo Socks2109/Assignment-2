@@ -170,7 +170,8 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             average loss 
         """
-        y_pred = np.dot(X, self.W)
+        z = np.dot(X, self.W)
+        y_pred = self.sigmoid(z)
         y_pred = np.clip(y_pred, 1e-6, 1 - 1e-6)
         N = len(y)
         return -(1 / N) * np.sum(y * np.log(y_pred) + (1 - y) * np.log(1 - y_pred))
