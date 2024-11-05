@@ -150,6 +150,13 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             gradients for a given loss function type np.ndarray (n-dimensional array)
         """
+
+        """
+        This function returns the gradient for the loss function. The gradient
+        is the partial derivative of the loss function. It takes the dot product
+        between the transpose of our X values, and the difference between the predicted
+        y and true y, and divided by the size.
+        """
         z = np.dot(X, self.W)
         y_pred = self.sigmoid(z)
         grad = np.dot(X.T, (y_pred - y)) / y.size
@@ -170,6 +177,12 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             average loss 
         """
+
+        """
+        This function returns the average loss. It takes the y predicted values,
+        and the predicted values are adjusted a little so that y != 0 or 1 in
+        case of log(0). 
+        """
         z = np.dot(X, self.W)
         y_pred = self.sigmoid(z)
         y_pred = np.clip(y_pred, 1e-6, 1 - 1e-6)
@@ -188,10 +201,18 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             y_pred for given X
         """
+
+        """
+        This function predicts the y prediction value. If the y value is below 0.5,
+        it'll predict the y to be 0; otherwise, it'll predict the y to be 1.
+        """
         z = np.dot(X, self.W)
         y_pred = self.sigmoid(z)
         y_pred = (y_pred >= 0.5).astype(int)
         return y_pred
     
     def sigmoid(self, z):
+        """
+        Return: Sigmoid function
+        """
         return 1 / (1 + np.exp(-z))

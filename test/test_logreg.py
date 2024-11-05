@@ -9,6 +9,10 @@ from regression import (logreg, utils)
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 
+
+"""
+This was pulled from main to test the logistic regression model.
+"""
 LogisticRegression = logreg.LogisticRegression
 
 features = ['AGE_DIAGNOSIS', 'Documentation of current medications',
