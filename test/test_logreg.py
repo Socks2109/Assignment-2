@@ -54,5 +54,12 @@ def test_predict():
 	# What should the output should look like for a binary classification task?
 	"""
 	Checks that the prediction only produces outputs with 1s or 0s
+	Also checks for accuracy
 	"""
 	assert np.any(log_model.make_prediction(X_train_weight)) == 1 or 0
+	
+	# Check accuracy of model after training
+	y_pred = log_model.make_prediction(X_train_weight)
+	correct_predictions = np.sum(y_pred == y_train)
+	accuracy = correct_predictions / len(y_train)
+	assert accuracy > 0
