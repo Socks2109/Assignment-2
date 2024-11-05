@@ -150,10 +150,12 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             gradients for a given loss function type np.ndarray (n-dimensional array)
         """
-        a
-        
-        pass
-    
+        z = np.dot(X, self.W)
+        y_pred = self.sigmoid(z)
+        grad = np.dot(X.T, (y_pred - y)) / y.size
+        return grad
+
+
     def loss_function(self, X, y) -> float:
         """
         TODO: Get y_pred from input X and implement binary cross 
@@ -168,7 +170,10 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             average loss 
         """
-        pass
+        y_pred = np.dot(X, self.W)
+        y_pred = np.clip(y_pred, 1e-6, 1 - 1e-6)
+        N = len(y)
+        return -(1 / N) * np.sum(y * np.log(y_pred) + (1 - y) * np.log(1 - y_pred))
     
     def make_prediction(self, X) -> np.array:
         """
@@ -182,9 +187,10 @@ class LogisticRegression(BaseRegressor):
         Returns: 
             y_pred for given X
         """
-
-        pass
-
-
-
+        z = np.dot(X, self.W)
+        y_pred = self.sigmoid(z)
+        y_pred = (y_pred >= 0.5).astype(int)
+        return y_pred
     
+    def sigmoid(self, z):
+        return 1 / (1 + np.exp(-z))

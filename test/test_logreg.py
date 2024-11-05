@@ -13,7 +13,7 @@ def test_updates():
 	# Check that your loss function is correct and that 
 	# you have reasonable losses at the end of training
 	# What is a reasonable loss?
-
+	
 	pass
 
 def test_predict():
