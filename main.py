@@ -25,7 +25,7 @@ def main():
     # for testing purposes once you've added your code
     # CAUTION & HINT: hyperparameters have not been optimized
     """
-    log_model = logreg.LogisticRegression(num_feats=num_feats, max_iter=200, tol=0.001, learning_rate=0.00001, batch_size=12)
+    log_model = logreg.LogisticRegression(num_feats=num_feats, max_iter=1000, tol=0.001, learning_rate=0.00759, batch_size=5)
     log_model.train_model(X_train, y_train, X_val, y_val)
     log_model.plot_loss_history()
 

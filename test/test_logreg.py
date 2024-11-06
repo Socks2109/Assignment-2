@@ -65,4 +65,4 @@ def test_predict():
 	y_pred = log_model.make_prediction(X_train_weight)
 	correct_predictions = np.sum(y_pred == y_train)
 	accuracy = correct_predictions / len(y_train)
-	assert accuracy > 0
+	assert accuracy > 0.2
